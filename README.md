@@ -18,25 +18,25 @@ npm install
 npm run dev
 ```
 
-## Deploy (Cloudflare Pages) — free
+## Deploy (Cloudflare) — free
 
-1. Sign in at [dash.cloudflare.com](https://dash.cloudflare.com) → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**
-2. Choose **Launchcountdown-Curator** from GitHub
-3. Build settings:
+Your Cloudflare project settings should be:
 
 | Setting | Value |
 |---------|--------|
-| Production branch | `main` |
-| Framework preset | Vite (or None) |
+| Root directory | `/` |
 | Build command | `npm run build` |
-| Build output directory | `dist` |
+| Deploy command | `npx wrangler deploy` |
+| Build output | `dist` (handled by `wrangler.jsonc`) |
+| Environment variables | none |
 
-4. **Deploy site** — no env vars needed for the launch page
-5. **Custom domain** (optional): Pages → your project → **Custom domains** → add e.g. `thecurator.com`
+**Do not** add a custom `_redirects` file — SPA routing is handled by `wrangler.jsonc` (`not_found_handling: single-page-application`). A `_redirects` rule causes an infinite-loop deploy error.
 
-`public/_redirects` is included so `/privacy`, `/terms`, and `/support` work on refresh.
+After pushing, trigger **Retry deployment** in the Cloudflare dashboard.
 
-**Free tier includes:** unlimited static requests, global CDN, HTTPS, and one Pages project on the free plan (generous bandwidth for a launch site).
+### Alternative: Cloudflare Pages (Git only)
+
+If you use **Pages** instead of Workers deploy, leave **Deploy command empty** and set output directory to `dist`. Pages serves static files without Wrangler.
 
 ## Deploy (Vercel)
 
