@@ -11,7 +11,7 @@ import {
 
 import { StoreDocBlock, StoreFactRow, StorePageHero } from '../StorePageHero';
 import { StoreSiteLayout } from '../StoreSiteLayout';
-import { LP, SHAPE_FEATURED, SHAPE_ITEM, SHAPE_THUMB, STORE_CONTACT } from '../tokens';
+import { LP, SHAPE_FEATURED, SHAPE_ITEM, SHAPE_THUMB, STORE_CONTACT, STORE_PLATFORMS } from '../tokens';
 import { useStorePageMeta } from '../useStorePageMeta';
 
 const FAQ = [
@@ -21,7 +21,7 @@ const FAQ = [
   },
   {
     q: 'When is it available?',
-    a: 'We are launching on the App Store and Google Play in September 2026. This site will update with store links on release day.',
+    a: `We are launching on ${STORE_PLATFORMS.label} in September 2026. This site will update with store links on release day.`,
   },
   {
     q: 'Is it free?',
@@ -29,7 +29,7 @@ const FAQ = [
   },
   {
     q: 'How do I cancel a subscription?',
-    a: 'Subscriptions are managed by Apple or Google, not inside Curator billing. On iPhone: Settings → Apple ID → Subscriptions. On Android: Google Play → Payments & subscriptions.',
+    a: 'Subscriptions are managed by the store where you installed the app — Apple, Google, or Samsung — not inside Curator billing. iPhone: Settings → Apple ID → Subscriptions. Google Play: Payments & subscriptions. Galaxy Store: Menu → Subscriptions.',
   },
   {
     q: 'How do I delete my account?',
@@ -44,7 +44,7 @@ const FAQ = [
 export function StoreSupport() {
   useStorePageMeta({
     title: 'Support · The Curator',
-    description: 'Get help with The Curator — contact, subscriptions, account deletion, and App Store / Google Play support information.',
+    description: `Get help with The Curator — contact, subscriptions, account deletion, and ${STORE_PLATFORMS.review} support information.`,
   });
 
   return (
@@ -52,7 +52,7 @@ export function StoreSupport() {
       <StorePageHero
         overline="Support"
         title={<>We&apos;re here <span style={{ color: `${LP.onSurface}73` }}>when you need us.</span></>}
-        lede="Help centre for accounts, subscriptions, and deletion — plus the contact emails App Store Connect and Google Play expect as your public support URL."
+        lede={`Help centre for accounts, subscriptions, and deletion — plus the public support URL ${STORE_PLATFORMS.review} reviewers expect.`}
       />
 
       <div className="mb-10 grid gap-4 md:grid-cols-2">
@@ -103,11 +103,11 @@ export function StoreSupport() {
           <dl className="space-y-3">
             <StoreFactRow label="iOS category" value="News" />
             <StoreFactRow label="Android category" value="News & Magazines" />
-            <StoreFactRow label="Billing" value="App Store · Google Play" />
+            <StoreFactRow label="Billing" value={STORE_PLATFORMS.short} />
             <StoreFactRow label="Legal" value="Privacy · Terms on this site" />
           </dl>
           <p className="mt-5 text-[14px] leading-relaxed" style={{ color: `${LP.onSurface}A6` }}>
-            App Store Connect reviewers: test credentials are supplied in review notes, not on this public page.
+            App Store Connect, Google Play, and Samsung Seller Portal reviewers: test credentials are supplied in review notes, not on this public page.
           </p>
         </div>
       </div>
@@ -131,7 +131,7 @@ export function StoreSupport() {
 
       <div className="mt-10 grid gap-4 md:grid-cols-3">
         {[
-          { Icon: CreditCard, title: 'Subscriptions', body: 'Manage Basic, Premium, or Lifetime in your Apple ID or Google Play account settings. Restore purchases from Settings in the app.' },
+          { Icon: CreditCard, title: 'Subscriptions', body: 'Manage Basic, Premium, or Lifetime in your Apple ID, Google Play, or Galaxy Store account settings (depending where you installed). Restore purchases from Settings in the app.' },
           { Icon: Trash2, title: 'Delete account', body: `Settings → Account → Delete account in the app. Or email ${STORE_CONTACT.support} — completed within 30 days.` },
           { Icon: Headphones, title: 'Audio issues', body: 'Premium includes AI narration. Check subscription tier, network connection, and try restoring purchases before contacting support.' },
         ].map((card) => (
@@ -156,7 +156,7 @@ export function StoreSupport() {
         <span className="inline-flex items-center gap-2 rounded-full px-3 py-1.5" style={{ backgroundColor: LP.secondaryContainer, color: LP.onSecondaryContainer }}>
           <Apple className="h-3.5 w-3.5" /> App Store support URL
         </span>
-        <span className="font-normal" style={{ color: `${LP.onSurface}99` }}>Use this page URL in App Store Connect</span>
+        <span className="font-normal" style={{ color: `${LP.onSurface}99` }}>Use this page URL in App Store Connect, Google Play Console, and Samsung Seller Portal</span>
         <Link to="/terms" className="ml-auto rounded-full px-4 py-2 transition-colors hover:bg-white/60" style={{ color: LP.onSurface }}>Terms</Link>
         <Link to="/privacy" className="rounded-full px-4 py-2 transition-colors hover:bg-white/60" style={{ color: LP.onSurface }}>Privacy</Link>
         <Link to="/support" className="rounded-full px-4 py-2 transition-colors hover:bg-white/60" style={{ color: LP.onSurface }}>Support</Link>

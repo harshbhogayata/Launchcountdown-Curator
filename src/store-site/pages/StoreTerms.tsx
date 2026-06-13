@@ -2,13 +2,13 @@ import { Link } from 'react-router';
 
 import { StoreDocBlock, StorePageHero } from '../StorePageHero';
 import { StoreSiteLayout } from '../StoreSiteLayout';
-import { LP, SHAPE_ITEM, STORE_CONTACT } from '../tokens';
+import { LP, SHAPE_ITEM, STORE_CONTACT, STORE_PLATFORMS } from '../tokens';
 import { useStorePageMeta } from '../useStorePageMeta';
 
 export function StoreTerms() {
   useStorePageMeta({
     title: 'Terms of Use · The Curator',
-    description: 'Terms of Use for The Curator news reader — subscriptions, acceptable use, and account policies for App Store and Google Play.',
+    description: `Terms of Use for The Curator news reader — subscriptions, acceptable use, and account policies for ${STORE_PLATFORMS.review}.`,
   });
 
   return (
@@ -38,15 +38,15 @@ export function StoreTerms() {
 
         <StoreDocBlock title="Free tier, ads & subscriptions">
           <p>Core reading is free and may include ads on the free tier. Optional <strong style={{ color: LP.onSurface }}>Basic</strong>, <strong style={{ color: LP.onSurface }}>Premium</strong>, and <strong style={{ color: LP.onSurface }}>Lifetime</strong> purchases remove ads and unlock features such as audio narration, collections, and higher save limits.</p>
-          <p>Purchases on iOS are billed through the Apple App Store; on Android through Google Play. RevenueCat manages entitlement state on our backend.</p>
+          <p>Purchases on iOS are billed through the Apple App Store. On Android they are billed through Google Play or Samsung Galaxy Store, depending where you installed the app. RevenueCat manages entitlement state on our backend.</p>
         </StoreDocBlock>
 
-        <StoreDocBlock title="Subscription terms (Apple & Google)">
+        <StoreDocBlock title={`Subscription terms (${STORE_PLATFORMS.amp})`}>
           <p>
-            Payment is charged to your Apple ID or Google Play account at confirmation of purchase. Subscriptions automatically renew unless cancelled at least <strong style={{ color: LP.onSurface }}>24 hours</strong> before the end of the current billing period. Your account is charged for renewal within 24 hours prior to the end of the current period.
+            Payment is charged to your Apple ID, Google Play account, or Samsung Galaxy Store account at confirmation of purchase. Subscriptions automatically renew unless cancelled at least <strong style={{ color: LP.onSurface }}>24 hours</strong> before the end of the current billing period. Your account is charged for renewal within 24 hours prior to the end of the current period.
           </p>
           <p>
-            Manage or cancel in your device&apos;s App Store or Google Play subscription settings. Lifetime purchases are one-time and do not renew. Refunds follow Apple and Google policies — we cannot override store refund decisions.
+            Manage or cancel in your device&apos;s App Store, Google Play, or Galaxy Store subscription settings. Lifetime purchases are one-time and do not renew. Refunds follow each store&apos;s policies — we cannot override store refund decisions.
           </p>
         </StoreDocBlock>
 

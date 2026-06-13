@@ -2,6 +2,8 @@
  * Surgical store-site color enhancements.
  * Set to `false` and save to revert all accent styling in one place.
  */
+import type { StorePlatform } from './tokens';
+
 export const STORE_COLOR_ENHANCEMENTS = true;
 
 export const ACCENT = {
@@ -39,7 +41,7 @@ export function featureTint(_key?: FeatureTintKey) {
 }
 
 /** Neutral store badges — no Apple grey or Play green. */
-export function storePill(_platform: 'apple' | 'google', tone: 'light' | 'dark' = 'light') {
+export function storePill(_platform: StorePlatform, tone: 'light' | 'dark' = 'light') {
   return tone === 'dark' ? STORE_PILL_DARK : STORE_PILL_LIGHT;
 }
 

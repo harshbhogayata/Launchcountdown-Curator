@@ -32,6 +32,7 @@ import {
   CreditCard,
   Globe,
   Apple,
+  Smartphone,
   FileText,
   EyeOff,
 } from 'lucide-react';
@@ -53,6 +54,7 @@ import {
   SHAPE_MINI,
   SHAPE_THUMB,
   STORE_CONTACT,
+  STORE_PLATFORMS,
 } from '../store-site/tokens';
 
 // ----------------------------------------------------
@@ -361,7 +363,7 @@ function CountdownTimer() {
 export function ComingSoon() {
   useStorePageMeta({
     title: 'The Curator · Coming soon',
-    description: 'Daily news briefings and source-backed articles you can read or hear. Launching on the App Store and Google Play in September 2026.',
+    description: `${STORE_PLATFORMS.meta} in ${LAUNCH_LABEL}.`,
   });
 
   // Mobile app simulator states - Upgraded to match Expo App's 4 core tabs
@@ -629,6 +631,7 @@ export function ComingSoon() {
             <div className="flex flex-wrap items-center gap-2">
               <StorePlatformBadge platform="apple">App Store · News</StorePlatformBadge>
               <StorePlatformBadge platform="google">Google Play · News &amp; Magazines</StorePlatformBadge>
+              <StorePlatformBadge platform="samsung">Galaxy Store · News</StorePlatformBadge>
               <span className="inline-flex items-center gap-1.5 rounded-full border border-[#31332b]/10 bg-[#efeee5]/40 px-3.5 py-1.5 text-[9px] font-bold uppercase tracking-[0.25em] text-[#31332b]/60">
                 <CalendarClock className="h-3.5 w-3.5 animate-pulse" />
                 Launching {LAUNCH_LABEL}
@@ -640,13 +643,12 @@ export function ComingSoon() {
             </p>
             
             <h1
-              className="max-w-[15ch] text-[clamp(2.5rem,7vw,5.25rem)] font-black leading-[0.92] tracking-[-0.04em] text-[#31332b]"
-              style={{ fontFamily: '"Fraunces", "Newsreader", Georgia, serif', fontOpticalSizing: 'auto' }}
+              className="max-w-[20ch] font-[family-name:var(--font-headline)] text-[clamp(2.1rem,5.8vw,4.5rem)] font-normal leading-[1.1] tracking-[-0.015em] text-[#31332b]"
             >
-              The day's news,{' '}
+              <span className="block font-medium not-italic">The day&apos;s news,</span>
               <span
-                className="italic font-light"
-                style={{ color: STORE_COLOR_ENHANCEMENTS ? ACCENT.headlineMuted : 'rgba(49, 51, 43, 0.45)' }}
+                className="mt-1 block font-medium italic"
+                style={{ color: STORE_COLOR_ENHANCEMENTS ? ACCENT.headlineMuted : 'rgba(49, 51, 43, 0.55)' }}
               >
                 distilled into briefings you can read or hear.
               </span>
@@ -659,7 +661,7 @@ export function ComingSoon() {
 
           {/* Countdown to public launch */}
           <div className="space-y-3 pt-2">
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#31332b]/45 block">Public launch on the App Store &amp; Google Play in</span>
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#31332b]/45 block">Public launch on {STORE_PLATFORMS.label} in</span>
             <CountdownTimer />
           </div>
 
@@ -1376,16 +1378,16 @@ export function ComingSoon() {
       {/* Feature band — built directly from the app's editorial design language */}
       <StoreFeatureCards />
 
-      {/* App information for App Store & Google Play listing & review teams */}
+      {/* App information for store listing & review teams */}
       <section className="pb-12">
         <div className="border-t border-[#31332b]/10 pt-12">
           <div className="mb-10 max-w-2xl">
             <span className="text-[11px] font-black uppercase tracking-[0.34em] text-[#31332b]/45">App information</span>
             <h2 className="mt-3 font-[family-name:var(--font-headline)] text-[clamp(1.8rem,4vw,3rem)] italic font-medium leading-[1.04] tracking-[-0.02em] text-[#31332b]">
-              Everything for the App Store &amp; Google Play listings.
+              Everything for the {STORE_PLATFORMS.review} listings.
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-[#31332b]/70 font-medium">
-              The Curator is a news reader for iPhone, iPad, and Android. The details below summarise how the app works, what data it collects, how subscriptions and account deletion work, and the support contacts reviewers expect — aligned with App Store Connect, App Privacy, and Google Play Data safety.
+              The Curator is a news reader for iPhone, iPad, and Android. The details below summarise how the app works, what data it collects, how subscriptions and account deletion work, and the support contacts reviewers expect — aligned with App Store Connect, Google Play Data safety, and Samsung Seller Portal.
             </p>
           </div>
 
@@ -1411,7 +1413,7 @@ export function ComingSoon() {
           </div>
 
           {/* Platform-specific listing facts */}
-          <div className="mb-10 grid gap-4 md:grid-cols-2">
+          <div className="mb-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 Icon: Store,
@@ -1421,6 +1423,17 @@ export function ComingSoon() {
                   { k: 'Content rating', v: 'Teen (13+)' },
                   { k: 'Billing', v: 'Google Play Billing' },
                   { k: 'Data safety', v: 'Play Console form filed' },
+                  { k: 'Support', v: '/support' },
+                ],
+              },
+              {
+                Icon: Smartphone,
+                platform: 'Galaxy Store',
+                facts: [
+                  { k: 'Category', v: 'News' },
+                  { k: 'Content rating', v: 'Teen (13+)' },
+                  { k: 'Billing', v: 'Galaxy Store IAP' },
+                  { k: 'Privacy', v: 'Seller Portal filed' },
                   { k: 'Support', v: '/support' },
                 ],
               },
@@ -1488,12 +1501,12 @@ export function ComingSoon() {
               {
                 Icon: Trash2,
                 title: 'Account & data deletion',
-                body: `Delete your account and associated data anytime from Settings → Account inside the app, or email ${STORE_CONTACT.support}. Deletion is available without leaving the app (required by both Apple and Google). Requests are completed within 30 days.`,
+                body: `Delete your account and associated data anytime from Settings → Account inside the app, or email ${STORE_CONTACT.support}. Deletion is available without leaving the app (required by Apple, Google, and Samsung). Requests are completed within 30 days.`,
               },
               {
                 Icon: CreditCard,
                 title: 'Subscriptions & billing',
-                body: 'Core reading is free and ad-supported. Optional Basic, Premium, and Lifetime purchases are billed through the App Store on iOS and Google Play on Android via RevenueCat. Manage or cancel subscriptions in your device account settings.',
+                body: 'Core reading is free and ad-supported. Optional Basic, Premium, and Lifetime purchases are billed through the App Store on iOS and Google Play or Galaxy Store on Android (depending where you installed) via RevenueCat. Manage or cancel subscriptions in your store account settings.',
               },
               {
                 Icon: Apple,
@@ -1503,7 +1516,7 @@ export function ComingSoon() {
               {
                 Icon: FileText,
                 title: 'Terms & legal',
-                body: 'Full Terms of Use and Privacy Policy live on this site at /terms and /privacy. Subscription terms: payment is charged to your Apple ID or Google account at purchase; subscriptions auto-renew unless cancelled at least 24 hours before the period ends.',
+                body: 'Full Terms of Use and Privacy Policy live on this site at /terms and /privacy. Subscription terms: payment is charged to your Apple ID, Google account, or Samsung account at purchase; subscriptions auto-renew unless cancelled at least 24 hours before the period ends.',
               },
               {
                 Icon: Globe,
@@ -1533,9 +1546,9 @@ export function ComingSoon() {
             className="mt-8 border border-[#31332b]/10 bg-[#efeee5]/60 px-6 py-5"
             style={SHAPE_ITEM}
           >
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#31332b]/45">Subscription terms (App Store &amp; Google Play)</span>
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#31332b]/45">Subscription terms ({STORE_PLATFORMS.amp})</span>
             <p className="mt-3 text-[13px] leading-relaxed text-[#31332b]/70">
-              Payment is charged to your Apple ID or Google Play account at confirmation of purchase. Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period. Your account is charged for renewal within 24 hours prior to the end of the current period. You can manage and cancel subscriptions in your App Store or Google Play account settings after purchase. Lifetime purchases are one-time and do not renew.
+              Payment is charged to your Apple ID, Google Play account, or Samsung Galaxy Store account at confirmation of purchase. Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period. Your account is charged for renewal within 24 hours prior to the end of the current period. You can manage and cancel subscriptions in your App Store, Google Play, or Galaxy Store account settings after purchase. Lifetime purchases are one-time and do not renew.
             </p>
           </div>
 
@@ -1555,6 +1568,7 @@ export function ComingSoon() {
             </a>
             <StorePlatformBadge platform="apple">App Store · {LAUNCH_LABEL}</StorePlatformBadge>
             <StorePlatformBadge platform="google">Google Play · {LAUNCH_LABEL}</StorePlatformBadge>
+            <StorePlatformBadge platform="samsung">Galaxy Store · {LAUNCH_LABEL}</StorePlatformBadge>
           </div>
         </div>
       </section>
@@ -1576,7 +1590,7 @@ export function ComingSoon() {
                 </span>
               </h2>
               <p className="mt-4 text-base leading-relaxed text-[#e9e8e3]/70 font-medium">
-                The Curator arrives on the App Store and Google Play in {LAUNCH_LABEL}. Reach out and we'll let you know the moment it goes live.
+                The Curator arrives on {STORE_PLATFORMS.label} in {LAUNCH_LABEL}. Reach out and we'll let you know the moment it goes live.
               </p>
             </div>
             <div className="flex shrink-0 flex-col gap-3">
@@ -1585,6 +1599,9 @@ export function ComingSoon() {
               </StorePlatformBadge>
               <StorePlatformBadge platform="google" tone="dark" className="px-5 py-3.5 text-[13px]">
                 Google Play · {LAUNCH_LABEL}
+              </StorePlatformBadge>
+              <StorePlatformBadge platform="samsung" tone="dark" className="px-5 py-3.5 text-[13px]">
+                Galaxy Store · {LAUNCH_LABEL}
               </StorePlatformBadge>
               <StoreNotifyButton variant="cta" />
             </div>

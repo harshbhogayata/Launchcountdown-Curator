@@ -3,7 +3,7 @@ import { Mail, ShieldCheck, Trash2 } from 'lucide-react';
 
 import { StoreDocBlock, StorePageHero } from '../StorePageHero';
 import { StoreSiteLayout } from '../StoreSiteLayout';
-import { LP, SHAPE_ITEM, STORE_CONTACT } from '../tokens';
+import { LP, SHAPE_ITEM, STORE_CONTACT, STORE_PLATFORMS } from '../tokens';
 import { useStorePageMeta } from '../useStorePageMeta';
 
 const deletionMailto = `mailto:${STORE_CONTACT.support}?subject=${encodeURIComponent(
@@ -24,7 +24,7 @@ export function StoreAccountDeletion() {
       <StorePageHero
         overline="Account deletion"
         title={<>Delete your account <span style={{ color: `${LP.onSurface}73` }}>and data.</span></>}
-        lede="Delete your account inside The Curator or email us from the address on your account. Required for App Store and Google Play review."
+        lede={`Delete your account inside The Curator or email us from the address on your account. Required for ${STORE_PLATFORMS.review} review.`}
       />
 
       <div className="space-y-5">

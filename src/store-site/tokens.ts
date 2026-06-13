@@ -66,6 +66,19 @@ export const STORE_CONTACT = {
   privacy: 'privacy@thecuratorgroup.org',
 } as const;
 
+/** Shared store-listing copy — keep marketing + legal pages in sync. */
+export const STORE_PLATFORMS = {
+  label: 'App Store, Google Play & Galaxy Store',
+  amp: 'App Store, Google Play & Galaxy Store',
+  short: 'App Store · Google Play · Galaxy Store',
+  marquee: 'APP STORE · GOOGLE PLAY · GALAXY STORE',
+  meta: 'Launching on the App Store, Google Play, and Samsung Galaxy Store',
+  notify: 'when The Curator hits the App Store, Google Play, and Galaxy Store',
+  review: 'App Store, Google Play & Samsung Galaxy Store',
+} as const;
+
+export type StorePlatform = 'apple' | 'google' | 'samsung';
+
 export const PILL_BORDER = `${LP.outlineVariant}4D`;
 export const PILL_SURFACE = 'rgba(255,255,255,0.7)';
 

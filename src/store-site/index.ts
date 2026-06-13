@@ -1,5 +1,5 @@
-export { LP, LAUNCH_DATE, LAUNCH_LABEL, SITE_URL, SHAPE_FEATURED, SHAPE_HERO, SHAPE_ITEM, SHAPE_THUMB, STORE_CONTACT, PILL_BORDER, PILL_SURFACE } from './tokens';
-export type { StoreNavKey } from './tokens';
+export { LP, LAUNCH_DATE, LAUNCH_LABEL, SITE_URL, SHAPE_FEATURED, SHAPE_HERO, SHAPE_ITEM, SHAPE_THUMB, STORE_CONTACT, STORE_PLATFORMS, PILL_BORDER, PILL_SURFACE } from './tokens';
+export type { StoreNavKey, StorePlatform } from './tokens';
 export { STORE_COLOR_ENHANCEMENTS, ACCENT, featureTint, storePill, navActiveStyle, launchAlertChipStyle } from './accent';
 export type { FeatureTintKey } from './accent';
 export { StorePlatformBadge } from './StorePlatformBadge';

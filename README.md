@@ -14,6 +14,8 @@ Standalone coming-soon / store listing site for **The Curator**.
 
 Production: **https://thecuratorgroup.org** · Contact: `support@thecuratorgroup.org`
 
+Launch notify signups POST to `VITE_API_BASE_URL/api/launch-notify` (defaults to the Railway API in production builds).
+
 ## Local dev
 
 ```bash
