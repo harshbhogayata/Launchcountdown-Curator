@@ -10,6 +10,9 @@ Standalone coming-soon / store listing site for **The Curator**.
 | `/privacy` | Privacy policy (App Store / Play) |
 | `/terms` | Terms of use |
 | `/support` | Support contact |
+| `/account-deletion` | Account & data deletion (App Store / Play) |
+
+Production: **https://thecuratorgroup.org** · Contact: `support@thecuratorgroup.org`
 
 ## Local dev
 

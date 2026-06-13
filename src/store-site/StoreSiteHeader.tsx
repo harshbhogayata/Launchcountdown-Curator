@@ -9,6 +9,7 @@ const NAV: { key: StoreNavKey; label: string; to: string }[] = [
   { key: 'privacy', label: 'Privacy', to: '/privacy' },
   { key: 'terms', label: 'Terms', to: '/terms' },
   { key: 'support', label: 'Support', to: '/support' },
+  { key: 'deletion', label: 'Deletion', to: '/account-deletion' },
 ];
 
 interface StoreSiteHeaderProps {

@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router';
 
 import { ComingSoon } from './pages/ComingSoon';
+import { StoreAccountDeletion } from './store-site/pages/StoreAccountDeletion';
 import { StorePrivacy } from './store-site/pages/StorePrivacy';
 import { StoreSupport } from './store-site/pages/StoreSupport';
 import { StoreTerms } from './store-site/pages/StoreTerms';
@@ -10,4 +11,5 @@ export const router = createBrowserRouter([
   { path: '/privacy', Component: StorePrivacy },
   { path: '/terms', Component: StoreTerms },
   { path: '/support', Component: StoreSupport },
+  { path: '/account-deletion', Component: StoreAccountDeletion },
 ]);

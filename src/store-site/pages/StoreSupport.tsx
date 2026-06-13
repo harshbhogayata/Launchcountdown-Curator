@@ -33,7 +33,7 @@ const FAQ = [
   },
   {
     q: 'How do I delete my account?',
-    a: 'Open the app → Settings → Account → Delete account. You can also email privacy@thecurator.com — we complete deletion within 30 days.',
+    a: `Open the app → Settings → Account → Delete account. You can also email ${STORE_CONTACT.support} — we complete deletion within 30 days.`,
   },
   {
     q: 'Do you track me across other apps?',
@@ -132,7 +132,7 @@ export function StoreSupport() {
       <div className="mt-10 grid gap-4 md:grid-cols-3">
         {[
           { Icon: CreditCard, title: 'Subscriptions', body: 'Manage Basic, Premium, or Lifetime in your Apple ID or Google Play account settings. Restore purchases from Settings in the app.' },
-          { Icon: Trash2, title: 'Delete account', body: 'Settings → Account → Delete account in the app. Or email privacy@thecurator.com — completed within 30 days.' },
+          { Icon: Trash2, title: 'Delete account', body: `Settings → Account → Delete account in the app. Or email ${STORE_CONTACT.support} — completed within 30 days.` },
           { Icon: Headphones, title: 'Audio issues', body: 'Premium includes AI narration. Check subscription tier, network connection, and try restoring purchases before contacting support.' },
         ].map((card) => (
           <div
@@ -159,6 +159,8 @@ export function StoreSupport() {
         <span className="font-normal" style={{ color: `${LP.onSurface}99` }}>Use this page URL in App Store Connect</span>
         <Link to="/terms" className="ml-auto rounded-full px-4 py-2 transition-colors hover:bg-white/60" style={{ color: LP.onSurface }}>Terms</Link>
         <Link to="/privacy" className="rounded-full px-4 py-2 transition-colors hover:bg-white/60" style={{ color: LP.onSurface }}>Privacy</Link>
+        <Link to="/support" className="rounded-full px-4 py-2 transition-colors hover:bg-white/60" style={{ color: LP.onSurface }}>Support</Link>
+        <Link to="/account-deletion" className="rounded-full px-4 py-2 transition-colors hover:bg-white/60" style={{ color: LP.onSurface }}>Account deletion</Link>
       </div>
     </StoreSiteLayout>
   );

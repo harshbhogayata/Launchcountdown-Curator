@@ -6,6 +6,7 @@ import {
   Mail,
   Quote,
   Sparkles,
+  Trash2,
 } from 'lucide-react';
 
 import { LAUNCH_LABEL, LP, STORE_CONTACT } from './tokens';
@@ -68,6 +69,11 @@ export function StoreSiteFooter() {
                   <Mail className="h-4 w-4" style={{ color: LP.outline }} /> Support
                 </Link>
               </li>
+              <li>
+                <Link to="/account-deletion" className="inline-flex items-center gap-2 transition-colors hover:opacity-100" style={{ color: 'inherit' }}>
+                  <Trash2 className="h-4 w-4" style={{ color: LP.outline }} /> Account deletion
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -78,6 +84,7 @@ export function StoreSiteFooter() {
             <Link to="/privacy" className="transition-colors hover:opacity-100">Privacy</Link>
             <Link to="/terms" className="transition-colors hover:opacity-100">Terms</Link>
             <Link to="/support" className="transition-colors hover:opacity-100">Support</Link>
+            <Link to="/account-deletion" className="transition-colors hover:opacity-100">Account deletion</Link>
           </div>
         </div>
       </div>

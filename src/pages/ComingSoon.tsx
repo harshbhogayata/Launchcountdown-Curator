@@ -1488,7 +1488,7 @@ export function ComingSoon() {
               {
                 Icon: Trash2,
                 title: 'Account & data deletion',
-                body: 'Delete your account and associated data anytime from Settings → Account inside the app, or email privacy@thecurator.com. Deletion is available without leaving the app (required by both Apple and Google). Requests are completed within 30 days.',
+                body: `Delete your account and associated data anytime from Settings → Account inside the app, or email ${STORE_CONTACT.support}. Deletion is available without leaving the app (required by both Apple and Google). Requests are completed within 30 days.`,
               },
               {
                 Icon: CreditCard,

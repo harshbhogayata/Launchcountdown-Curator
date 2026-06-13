@@ -59,12 +59,14 @@ export const SHAPE_MINI = {
 export const LAUNCH_DATE = new Date('2026-09-01T10:00:00');
 export const LAUNCH_LABEL = 'September 2026';
 
+export const SITE_URL = 'https://thecuratorgroup.org';
+
 export const STORE_CONTACT = {
-  support: 'support@thecurator.com',
-  privacy: 'privacy@thecurator.com',
+  support: 'support@thecuratorgroup.org',
+  privacy: 'privacy@thecuratorgroup.org',
 } as const;
 
 export const PILL_BORDER = `${LP.outlineVariant}4D`;
 export const PILL_SURFACE = 'rgba(255,255,255,0.7)';
 
-export type StoreNavKey = 'home' | 'privacy' | 'terms' | 'support';
+export type StoreNavKey = 'home' | 'privacy' | 'terms' | 'support' | 'deletion';
