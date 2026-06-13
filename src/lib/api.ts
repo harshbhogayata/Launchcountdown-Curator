@@ -6,11 +6,16 @@ export const API_BASE_URL = (
 ).replace(/\/$/, '');
 
 export async function registerLaunchNotify(email: string): Promise<{ status: string; email: string }> {
-  const response = await fetch(`${API_BASE_URL}/api/launch-notify`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify({ email, source: 'launch_site' }),
-  });
+  let response: Response;
+  try {
+    response = await fetch(`${API_BASE_URL}/api/launch-notify`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({ email, source: 'launch_site' }),
+    });
+  } catch {
+    throw new Error('Could not reach the server. Try again in a moment or email support@thecuratorgroup.org.');
+  }
 
   const payload = await response.json().catch(() => null);
 
